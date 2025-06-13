@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const workingHours = require("./middleware/workingHours");
+const PORT = 3000;
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -14,4 +15,6 @@ app.get("/services", (req, res) => res.render("services"));
 app.get("/contact", (req, res) => res.render("contact"));
 
 // Start server
-app.listen(3000, () => console.log("Server running on http://localhost:3000"));
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);
